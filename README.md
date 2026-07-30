@@ -1,6 +1,6 @@
 # Password Strength Meter
 
-This tool estimates a password's entropy in bits and a rough offline crack time, scoring it from very weak to very strong. It runs only in your browser; the password is never transmitted, stored, or saved.
+This tool estimates a password's character-set entropy in bits and a rough offline crack time, scoring it from very weak to very strong. It runs only in your browser; the password is never transmitted, stored, or saved.
 
 **Live demo:** https://0xelitesystem.github.io/password-strength-meter/
 
@@ -9,6 +9,10 @@ This tool estimates a password's entropy in bits and a rough offline crack time,
 Type or paste a password. The tool estimates entropy as the length multiplied by the bits per character implied by the character types present, lowercase, uppercase, digits, and symbols. It shows the bit count, a grade, a five-segment meter, a crack-time estimate, and which character classes and length thresholds are met.
 
 The crack time assumes a fast offline guessing rate and is an order-of-magnitude figure, not a guarantee. Because everything stays in the browser, nothing leaves the page; still, avoid pasting a live password on a machine you do not trust.
+
+## What it does not do
+
+This is a character-set estimate, not a guessability model. It does not check the password against common-password or breach lists, dictionary words, names, dates, or keyboard patterns, and it does not detect repetition. A password that is trivial for a real attacker can therefore score well here: `Password123!` is reported as 79 bits and graded Strong, and `qwertyuiop` is graded Fair. Read the bit count as an upper bound on strength, not a verdict on it. For adversarial-order estimates, use a pattern-aware estimator such as zxcvbn.
 
 ## Aesthetic
 

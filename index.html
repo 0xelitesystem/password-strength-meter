@@ -93,7 +93,7 @@ input:focus{outline:2px solid var(--good);outline-offset:-1px}
   </div>
 
   <div class="priv">This tool runs only in your browser. The password is never transmitted, stored, or saved. Closing the page erases it. Still, avoid pasting a password you actively use on a machine you do not trust.</div>
-  <div class="note">Entropy is estimated as length times the bits per character implied by the character types present. Crack time assumes a fast offline guessing rate and is a rough order-of-magnitude figure, not a guarantee.</div>
+  <div class="note">Entropy is estimated as length times the bits per character implied by the character types present. Crack time assumes a fast offline guessing rate and is a rough order-of-magnitude figure, not a guarantee. This is a character-set estimate only. It does not check your password against common-password or breach lists, dictionary words, names, dates, or keyboard patterns, so a predictable password such as Password123! scores far higher here than it would survive against a real guessing attack. Treat the number as an upper bound, not a verdict.</div>
 </div>
 </div>
 <script>
@@ -118,7 +118,8 @@ input:focus{outline:2px solid var(--good);outline-offset:-1px}
     if(seconds<1)return "instant";
     var units=[["second",1],["minute",60],["hour",3600],["day",86400],["year",31557600],
       ["century",3155760000],["millennium",31557600000]];
-    if(seconds>1e13)return "longer than the age of the universe";
+    // age of the universe is about 13.8 billion years == 4.35e17 seconds
+    if(seconds>4.35e17)return "longer than the age of the universe";
     var name="second",val=seconds;
     for(var i=units.length-1;i>=0;i--){if(seconds>=units[i][1]){name=units[i][0];val=seconds/units[i][1];break;}}
     var rounded=val>=100?Math.round(val):val>=10?Math.round(val):val.toFixed(1);
