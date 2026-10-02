@@ -22,9 +22,30 @@ A brushed-steel safe panel with a combination dial and tick ring drawn in SVG, a
 
 Everything runs in your browser. Nothing you type is sent anywhere, stored, or saved. Closing the tab clears it.
 
-## Use it
+## Use
 
 Open `index.html` in any modern browser, or host it as a static page. No build step, no dependencies, no network calls.
+
+1. Type or paste a password into the field. Press Show to reveal it.
+2. Read the bit count, grade, and crack-time estimate.
+3. Check which character classes and length thresholds are met.
+
+## Why this exists
+
+Pasting a password into a website to test it is exactly the habit attackers count on. This is one HTML file that estimates character-set entropy in your browser, with no tracking and no network calls. MIT licensed, so you can confirm that by reading the source.
+
+## Run locally
+
+```
+git clone https://github.com/0xelitesystem/password-strength-meter
+cd password-strength-meter
+```
+
+Then open `index.html` in any browser. Or serve the folder with `python -m http.server` and visit http://localhost:8000.
+
+## Build
+
+No build step. The whole tool is one file, `index.html`, with its CSS and JavaScript inline.
 
 ## More
 
